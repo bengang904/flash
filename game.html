@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游戏</title>
+    <title id="pageTitle">正在加载游戏...</title> <!-- 初始标题 -->
+    <link id="favicon" rel="icon" href="" type="image/x-icon"> <!-- 初始图标 -->
     <script src="ruffle/ruffle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle"></script>
     <style>
@@ -110,7 +111,13 @@
             if (gameUrl) {
                 const game = gameData.find(item => item.swfUrl === gameUrl);
                 if (game) {
-                    gameTitle.textContent = game.name;  // 更新标题
+                    // 设置网页标题
+                    document.title = game.name;  // 更新网页标签标题
+                    // 设置favicon
+                    const favicon = document.getElementById("favicon");
+                    favicon.href = game.icon || "default-icon.ico";  // 如果没有icon使用默认图标
+
+                    gameTitle.textContent = game.name;  // 更新标题显示
                     const ruffle = window.RufflePlayer.newest();
                     const player = ruffle.createPlayer();
                     container.appendChild(player);
