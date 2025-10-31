@@ -5,6 +5,12 @@
          "description": "《疯狂外星人》 是一款经典的横版动作游戏，由 The Behemoth 开发并于 2004年发布。这款游戏最初是作为 Flash 游戏在 Newgrounds 网站上发布的，但由于其极高的评价和受欢迎程度，后来它被移植到多个平台，包括 PlayStation 2、GameCube、Xbox 等。",
         "swfUrl": "swf/Alien Hominid.swf"
     },
+     {
+        "name": "Angry Birds Rio",
+        "icon": "images/Angry Birds Rio.jpg",
+         "description": "《愤怒的小鸟：里约大冒险》Rovio 官方于 2011 年推出的网页版 Angry Birds 游戏，它以 Flash + NaCl 形式运行，玩法与手机版一致，属于官方授权的特别网页移植版。",
+        "swfUrl": "swf/Angry Birds Rio.swf"
+    },
     {
         "name": "DAD'n ME",
         "icon": "images/DADn ME.jpg",
@@ -54,4 +60,5 @@
         "swfUrl": "swf/Ultimate Flash Sonic.swf"  
     }
 ]
+
 
