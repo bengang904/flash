@@ -1,98 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>没有找到哦！！😂</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>资源</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://unpkg.com/7.css">
+
     <style>
-        body {
+        html, body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
+            height: 100%;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
-            background: #f0f0f0;
+            justify-content: center;
+        }
+        
+        .window { 
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3); 
+            border-radius: 4px; 
+            width: 450px; 
+            max-width: 80vw; 
         }
 
-        .container {
-            text-align: center;
+        .window-body { 
+            padding: 16px 22px !important; 
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background-color: #F0F0F0;
         }
 
-        .error {
-            margin: 20px;
-            background: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in-out;
+        /* 新增：CSS 绘制的 Win7 警告图标 */
+        .error-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            position: relative;
+            margin-top: 5px;
         }
-
-        .error h1 {
-            font-size: 100px;
-            margin: 0;
-            color: #ff6b6b;
-            animation: bounce 1s infinite alternate;
+        .error-icon::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 48px;
+            height: 48px;
+            background-color: #FFC000; /* Windows 警告黄色 */
+            border-radius: 50%;
+            /* 增加一点阴影来模仿立体感 */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); 
         }
-
-        .error p {
-            font-size: 20px;
-            margin: 20px 0;
-            color: #333;
+        .error-icon::after {
+            content: "!";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 32px;
+            color: #333; /* 深色感叹号 */
+            font-weight: bold;
+            line-height: 1;
         }
+        /* 结束：CSS 绘制的 Win7 警告图标 */
 
-        .home-link {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 18px;
-            color: #fff;
-            background: #ff6b6b;
-            border-radius: 5px;
+
+        .error-message {
+            flex-grow: 1;
+        }
+        .error-message h1 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+        }
+        .error-message p, .error-message ul {
+            font-size: 13px;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+        }
+        .error-message ul {
+            padding-left: 20px;
+        }
+        .error-message a {
+            color: #0066CC;
             text-decoration: none;
-            transition: background 0.3s ease;
+        }
+        .error-message a:hover {
+            text-decoration: underline;
         }
 
-        .home-link:hover {
-            background: #ff4757;
+        .field-row {
+            padding: 8px 16px;
+            border-top: 1px solid #c8c8c8;
+            background-color: #f0f0f0;
+            text-align: right;
+            margin: 0 -22px -16px -22px;
+            display: none;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes bounce {
-            from {
-                transform: translateY(0);
-            }
-            to {
-                transform: translateY(-10px);
-            }
-        }
-        div, p, a {
-            font-family: 'ZCOOL KuaiLe', sans-serif;
-        } 
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="error">
-            <h1>404</h1>
-            <p>哎呀！找不到您要查找的页面或资源。可能已经被删除，或者链接拼写存在错误。😂😂</p>
-            <a href="/" class="home-link">返回首页</a>
+<body class="win7">
+
+<div id="error-dialog" class="window active">
+    <div class="title-bar">
+        <div class="title-bar-text">
+            找不到资源
+        </div>
+        <div class="title-bar-controls">
+            <button aria-label="Close" id="closeButton"></button>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('404 Page Loaded');
-        });
-    </script>
+    
+    <div class="window-body">
+        <span class="error-icon"></span>
+
+        <div class="error-message">
+            <h1>资源页面：可能已经被删除</h1>
+            <p>
+                您尝试访问的资源（<code style="background:#ddd; padding:1px 3px; border-radius:3px; font-weight:bold;">/您尝试访问的路径</code>）可能已被删除、名称已更改或暂时不可用。
+            </p>
+
+            <p>
+                <strong>建议操作：</strong>
+            </p>
+            <ul>
+                <li>检查地址栏中的网址拼写是否正确。</li>
+                <li>访问网站的 <a href="/">主页</a>。</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const closeButton = document.getElementById('closeButton');
+        
+        if (closeButton) {
+            closeButton.addEventListener('click', () => {
+                window.location.href = '/'; 
+            });
+        }
+    });
+</script>
 </body>
 </html>
