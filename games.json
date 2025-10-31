@@ -36,6 +36,12 @@
         "swfUrl": "swf/Gun Mayhem 3.swf"
     },
     {
+        "name": "KOF Wing 1.8",
+       "icon": "images/KOF Wing 1.8.jpg",
+        "description": "《拳皇Wing 1.8》是用Flash制作的非官方拳皇同人格斗游戏，画面精美、打击感强，支持单人和双人对战，完美还原KOF经典玩法。",
+        "swfUrl": "swf/KOF Wing 1.8.swf"
+    },
+    {
         "name": "Papas Burgeria",
        "icon": "images/Papas Burgeria.jpg",
         "description": "《老爹汉堡店》是一款 模拟经营类休闲游戏，由 Flipline Studios 开发，是其“老爹餐厅系列”之一。游戏的核心玩法是经营一家汉堡店，从接单、制作到送餐，每个环节都需要玩家亲自操作。",
@@ -60,5 +66,6 @@
         "swfUrl": "swf/Ultimate Flash Sonic.swf"  
     }
 ]
+
 
 
