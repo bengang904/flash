@@ -1,0 +1,71 @@
+[
+    {
+        "name": "Alien Hominid",
+        "icon": "images/Alien Hominid.jpg",
+         "description": "《疯狂外星人》 是一款经典的横版动作游戏，由 The Behemoth 开发并于 2004年发布。这款游戏最初是作为 Flash 游戏在 Newgrounds 网站上发布的，但由于其极高的评价和受欢迎程度，后来它被移植到多个平台，包括 PlayStation 2、GameCube、Xbox 等。",
+        "swfUrl": "swf/Alien Hominid.swf"
+    },
+     {
+        "name": "Angry Birds Rio",
+        "icon": "images/Angry Birds Rio.jpg",
+         "description": "《愤怒的小鸟：里约大冒险》Rovio 官方于 2011 年推出的网页版 Angry Birds 游戏，它以 Flash + NaCl 形式运行，玩法与手机版一致，属于官方授权的特别网页移植版。",
+        "swfUrl": "swf/Angry Birds Rio.swf"
+    },
+    {
+        "name": "DAD'n ME",
+        "icon": "images/DADn ME.jpg",
+        "description": "《狂扁小朋友》 是一款由 Tom Fulp 和 Dan Paladin 开发的 Flash 动作游戏，最初发布于 2002年，并在 Newgrounds 上广受欢迎。它是一款以简单的打斗机制为基础的横版动作游戏，玩家控制的是一个小男孩与他父亲一起在街头冒险，挑战各种敌人和场景。",
+        "swfUrl": "swf/DADn ME.swf"  
+    },
+    {
+        "name": "Double Edged",
+        "icon": "images/Double Edged.jpg",
+        "description": "《双刃剑》是一款由 Nitrome 开发的像素风横版动作游戏，玩家操控古代战士单人或双人协力战斗。游戏以罗马战场为背景，融合砍杀、跳跃与策略元素，敌人多样、节奏紧凑，是经典的 Flash 合作闯关作品之一。",
+        "swfUrl": "swf/Double Edged.swf"  
+    },
+    {
+        "name": "Fireboy and Watergirl",
+       "icon": "images/Fireboy and Watergirl.jpg",
+        "description": "《火男与水女》是一款非常流行的在线合作解谜平台游戏，最初由 Oslo Albet 和 Jan Villanueva 在 2010年开发，并由 Bozo Games 发布。这款游戏非常受欢迎，尤其是在 Flash 游戏平台上，玩家们可以单人或与朋友一起体验这款充满创意和挑战的双人游戏。",
+        "swfUrl": "swf/Fireboy and Watergirl.swf"
+    },
+    {
+        "name": "Gun Mayhem 3",
+       "icon": "images/Gun Mayhem 3.jpg",
+        "description": "《枪战狂潮》是一款快节奏平台射击游戏，玩家可单人或多人在悬空竞技场中对战，通过使用各种枪械和炸弹将对手击飞。游戏支持角色自定义与多种模式，节奏紧张刺激，是经典的 Flash 对战射击系列代表",
+        "swfUrl": "swf/Gun Mayhem 3.swf"
+    },
+    {
+        "name": "KOF Wing 1.8",
+       "icon": "images/KOF Wing 1.8.jpg",
+        "description": "《拳皇Wing 1.8》是用Flash制作的非官方拳皇同人格斗游戏，画面精美、打击感强，支持单人和双人对战，完美还原KOF经典玩法。",
+        "swfUrl": "swf/KOF Wing 1.8.swf"
+    },
+    {
+        "name": "Papas Burgeria",
+       "icon": "images/Papas Burgeria.jpg",
+        "description": "《老爹汉堡店》是一款 模拟经营类休闲游戏，由 Flipline Studios 开发，是其“老爹餐厅系列”之一。游戏的核心玩法是经营一家汉堡店，从接单、制作到送餐，每个环节都需要玩家亲自操作。",
+        "swfUrl": "swf/Papas Burgeria.swf"  
+    },
+    {
+        "name": "Super Mario 63",
+       "icon": "images/Super Mario 63.jpg",
+        "description": "《超级马力奥 63》是一款由 Runouw 创作的、混合了多款《超级马力奥》的游戏，于2009年发布。它结合了《超级马力欧世界2：耀西岛》、《超级马力欧64》、《阳光马力欧》等游戏的元素，并加入了关卡编辑器",
+        "swfUrl": "swf/Super Mario 63.swf"  
+    },
+    {
+        "name": "Truck Loader",
+       "icon": "images/Truck Loader.jpg",
+        "description": "《卡车装载工》是一款由 Flazm 开发的物理益智游戏，玩家操控带磁力臂的小车，将箱子吸取并装入卡车。游戏融合物理碰撞与机关解谜，操作简单但关卡巧妙，考验逻辑与精确控制，系列共五部作品。",
+        "swfUrl": "swf/Truck Loader.swf"  
+    },
+    {
+        "name": "Ultimate Flash Sonic",
+       "icon": "images/Ultimate Flash Sonic.jpg",
+        "description": "《终极闪电索尼克》是一款《刺猬索尼克》同人动作游戏，玩法与世嘉原作极为相似。玩家可操控索尼克、塔尔斯、纳克鲁斯、艾米或暗影等角色，在多样关卡中奔跑、跳跃、收集金环并击败敌人，体验原汁原味的高速闯关乐趣。",
+        "swfUrl": "swf/Ultimate Flash Sonic.swf"  
+    }
+]
+
+
+

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>资源</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://unpkg.com/7.css">
+
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .window { 
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3); 
+            border-radius: 4px; 
+            width: 450px; 
+            max-width: 80vw; 
+        }
+
+        .window-body { 
+            padding: 16px 22px !important; 
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background-color: #F0F0F0;
+        }
+
+        /* 新增：CSS 绘制的 Win7 警告图标 */
+        .error-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            position: relative;
+            margin-top: 5px;
+        }
+        .error-icon::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 48px;
+            height: 48px;
+            background-color: #FFC000; /* Windows 警告黄色 */
+            border-radius: 50%;
+            /* 增加一点阴影来模仿立体感 */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); 
+        }
+        .error-icon::after {
+            content: "!";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 32px;
+            color: #333; /* 深色感叹号 */
+            font-weight: bold;
+            line-height: 1;
+        }
+        /* 结束：CSS 绘制的 Win7 警告图标 */
+
+
+        .error-message {
+            flex-grow: 1;
+        }
+        .error-message h1 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+        }
+        .error-message p, .error-message ul {
+            font-size: 13px;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+        }
+        .error-message ul {
+            padding-left: 20px;
+        }
+        .error-message a {
+            color: #0066CC;
+            text-decoration: none;
+        }
+        .error-message a:hover {
+            text-decoration: underline;
+        }
+
+        .field-row {
+            padding: 8px 16px;
+            border-top: 1px solid #c8c8c8;
+            background-color: #f0f0f0;
+            text-align: right;
+            margin: 0 -22px -16px -22px;
+            display: none;
+        }
+    </style>
+</head>
+<body class="win7">
+
+<div id="error-dialog" class="window active">
+    <div class="title-bar">
+        <div class="title-bar-text">
+            找不到资源
+        </div>
+        <div class="title-bar-controls">
+            <button aria-label="Close" id="closeButton"></button>
+        </div>
+    </div>
+    
+    <div class="window-body">
+        <span class="error-icon"></span>
+
+        <div class="error-message">
+            <h1>资源页面：可能已经被删除</h1>
+            <p>
+                您尝试访问的资源（<code style="background:#ddd; padding:1px 3px; border-radius:3px; font-weight:bold;">/您尝试访问的路径</code>）可能已被删除、名称已更改或暂时不可用。
+            </p>
+
+            <p>
+                <strong>建议操作：</strong>
+            </p>
+            <ul>
+                <li>检查地址栏中的网址拼写是否正确。</li>
+                <li>访问网站的 <a href="/">主页</a>。</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const closeButton = document.getElementById('closeButton');
+        
+        if (closeButton) {
+            closeButton.addEventListener('click', () => {
+                window.location.href = '/'; 
+            });
+        }
+    });
+</script>
+</body>
+</html>
