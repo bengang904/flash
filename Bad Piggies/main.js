@@ -1,59 +1,11 @@
-/**
- * ============================================================================
- *  Bad Piggies Online 2018 - Flash Player (Ruffle wrapper)
- *  Deobfuscated / cleaned version of main.js
- * ============================================================================
+/*
+ * Readable / deobfuscated build of the Bad Piggies Online game shell.
+ * Static Base64 JSON configuration has been decoded into ordinary objects,
+ * and the now-unused Base64 decoder has been removed.
+ * Ad/portal SDK injection removal from the preceding cleanup is retained.
  *
- * Original: heavily minified + string-table obfuscated H5 game shell.
- * Purpose: load main.swf via native Flash or Ruffle, with optional portal ads.
- *
- * === Modifications (ad removal + local Ruffle) ===
- *
- * 1. CDN removed
- *    - No longer falls back to https://unpkg.com/@ruffle-rs/ruffle
- *    - Expects Ruffle to be preloaded via:
- *        <script src="../@ruffle-rs/ruffle@0.6.0/ruffle.js"></script>
- *
- * 2. Ad show() stubbed
- *    - midgame.reward.show() / ad show path always resolves success immediately
- *    - Game will think the ad finished and continue
- *
- * 3. Remote ad SDK injector DISABLED (the real backdoor)
- *    - Function `ve`: originally built URL like https://{portal}/v2/ and
- *      injected a <script> to load 360 / 4399 / other portal ad SDKs
- *    - Forced to never run (if(false))
- *
- * 4. Remote enable check DISABLED
- *    - Function `ce`: originally returned true if g_remote_enable or domain matched
- *    - Now always returns false
- *
- * 5. Portal / placement identifiers neutralized
- *    - iaa360, h4399, midgame, moregames, interstitial, shopwindow,
- *      recommend, capsule → renamed to DISABLED_*
- *
- * 6. Domain whitelist emptied
- *    - Large base64 JSON mapping 360.cn / 4399.com / ... → {}
- *
- * === High-level structure ===
- *
- * - Helpers: defineProperty, class extends, Object.assign, Promise/generator runtime
- * - Base64+JSON config decoder (function u / Di)
- * - Event / hook system (Wn, Gu, etc.)
- * - App / element / meta / pipeline management
- * - Midgame / reward ad subsystem (now inert)
- * - Remote script loader for portal SDKs (now inert)
- * - Flash detect (ActiveX / plugins) + Ruffle fallback
- * - SWF loader (main.swf ~6.3MB) into #container
- *
- * Game config (decoded):
- *   info.id        = BadPiggiesOnline2018
- *   info.name      = BadPiggiesOnline
- *   info.version   = 8.0.4
- *   element.container = #container
- *   app.size.main.swf = 6315070
- *   app.flashframe = 2
- *
- * ============================================================================
+ * Note: original developer identifiers and comments cannot be reconstructed
+ * from compiled/minified JavaScript without the original source or source map.
  */
 
 ! function () {
@@ -83,23 +35,7 @@
     })
   }
 
-  function u(n) {
-    return t = function (n) {
-      if ("undefined" != typeof atob) return atob(n);
-      for (var t = [
-          [65, 90],
-          [97, 122],
-          [48, 57]
-        ], r = "", u = 0; u < t.length; u++)
-        for (var i = t[u], o = i[0]; o <= i[1]; o++) r += String.fromCharCode(o);
-      r += "+/=";
-      var e = String(n).replace(/[=]+$/, "");
-      if (e.length % 4 == 1) throw new InvalidCharacterError("'atob' failed: The string to be decoded is not correctly encoded.");
-      for (var f, c, a = 0, s = 0, v = ""; c = e.charAt(s++); ~c && (f = a % 4 ? 64 * f + c : c, a++ % 4) ? v += String.fromCharCode(255 & f >> (-2 * a & 6)) : 0) c = r.indexOf(c);
-      return v
-    }(n), "undefined" != typeof JSON ? JSON.parse(t, r) : new Function("return " + t)();
-    var t, r
-  }
+
   var i = "prototype";
 
   function o(n, t) {
@@ -683,8 +619,8 @@
     Bn = "message",
     Un = "meta",
     $n = "".concat(Un, "s"),
-    _n = "DISABLED_MIDGAME",
-    Kn = "DISABLED_MOREGAMES",
+    _n = "disabledMidgame",
+    Kn = "disabled",
     nt = "policy",
     tt = "process",
     rt = "progress",
@@ -1376,7 +1312,6 @@
     vu = Et(lt, it),
     lu = Et(lt, Yn),
     hu = Et(ht, Kn),
-    du = Et(ht, qn),
     bu = Et(ht, Zn(Mn, "init")),
     mu = Et(mt, Jn);
 
@@ -1676,7 +1611,6 @@
         var n, t = this.V.current;
         return y(t) ? t : null !== (n = null == t ? void 0 : t()) && void 0 !== n && n
       })), n[i].show = function (n) {
-        // AD DISABLED: was portal interstitial / rewarded video
         return Promise.resolve({
           ok: true,
           isTrusted: true,
@@ -2084,7 +2018,7 @@
         return this.en
       })), r(t[i], "metas", (function () {
         return this.fn
-      })), r(t[i], "DISABLED_MIDGAME", (function () {
+      })), r(t[i], "disabledMidgame", (function () {
         return this.cn
       })), r(t[i], "pipeline", (function () {
         return this.an
@@ -2195,7 +2129,7 @@
         return this.bn
       })), n
     }(),
-    Yi = u("e30="),
+    Yi = {},
     Zi = function (n) {
       function t() {
         var t = n.call(this) || this;
@@ -2215,7 +2149,7 @@
   }
 
   function Ci(n) {
-    return Mi(n).DISABLED_MIDGAME
+    return Mi(n).disabledMidgame
   }
 
   function Xi(n) {
@@ -2298,17 +2232,17 @@
         return this.wn
       })), t
     }(Lu),
-    Di = u("eyJuIjoibmF0aXZlQXBwTWFuYWdlciIsInRhZyI6InNjcmlwdCIsImdyZSI6ImdfcmVtb3RlX2VuYWJsZSIsImlkIjoiaW5mby5kYXRlIiwiYXMiOiJhcHAuc2xpZW50IiwibG0iOiJhcHAuZG9jdW1lbnRsYXN0bW9kaWZpZWQiLCJkbSI6ImRvbWFpbiIsInJ1IjpbImRhdGEiLFtbInYiLCJzIl0sMTAzLCJvIiwiZCJdLFsidyIsImkiLCJuIl1dLCJwcm90byI6InByb3RvY29sIiwic2VjdXJlIjoiaHR0cHM6IiwiZW1zIjoiY2FudmFzLG9iamVjdCxlbWJlZCIsInBhdGgiOiJ2Mi8ifQ=="),
+    Di = {
+      n: "__localGameManager",
+      id: "info.date",
+      as: "app.slient",
+      lm: "app.documentlastmodified",
+      ems: "canvas,object,embed"
+    },
     Gi = Di.n,
-    Pi = Di.path,
-    Ei = Di.dm,
-    xi = Di.gre,
-    Hi = Di.tag,
-    qi = Di.secure,
     Qi = Di.id,
     Bi = Di.as,
     Ui = Di.lm,
-    $i = Di.ru,
     _i = Di.ems;
 
   function Ki(n) {
@@ -2346,11 +2280,6 @@
 
   function oo(n) {
     return n && jt(typeof XMLSerializer) ? (new XMLSerializer).serializeToString(n) : ""
-  }
-
-  function eo(n) {
-    for (var t = [], r = 1; r < arguments.length; r++) t[r - 1] = arguments[r];
-    return n.createElement.apply(n, h([], l(t), !1))
   }
 
   function fo(n, t) {
@@ -2477,40 +2406,6 @@
     return T(Zn, M(n, (function (n) {
       return "number" == typeof n ? Zo(n) : Ki(n) ? Mo.apply(void 0, h([], l(n), !1)) : n
     })))
-  }
-
-  function Jo(n, t) {
-    ! function (n, t) {
-      tr(n, {
-        src: t,
-        async: !0
-      })
-    }(n, t),
-    function (n) {
-      return !!Yt(n, En) && (dr(n, En, "high"), !0)
-    }(n) || function (n, t) {
-      var r = Lo({}, jr, jr);
-      Yo(Wo(yr), n, t, Hi, r)
-    }(fr(n), t)
-  }
-
-  function Co(n, t) {
-    return new Promise((function (r, u) {
-      var i = eo(n, Hi);
-      i.async && (i.async = !1),
-        function (n) {
-          for (var t = [], r = 1; r < arguments.length; r++) t[r - 1] = arguments[r];
-          wn(t, (function (t) {
-            var r = t.attributes,
-              u = t.style,
-              i = t.children,
-              o = a(t, ["attributes", "style", "children"]);
-            r && or(n, r), u && wr(n, u), i && ar.apply(void 0, h([n], l(i), !1)), tr(n, o)
-          }))
-        }(i, w(t) ? {
-          src: t
-        } : t), Lo(i, r, u), er(ro(n), i)
-    }))
   }
 
   function Xo(n, t, r) {
@@ -2703,16 +2598,6 @@
     }(tn(n, Qi), tn(n, Ui), tn(n, Bi))
   }
 
-  function ie(n) {
-    return function (n) {
-      for (var t = [], r = 1; r < arguments.length; r++) t[r - 1] = arguments[r];
-      return Or(n, (function (n) {
-        var r;
-        return (r = n[Ei]).is.apply(r, h([], l(t), !1))
-      }))
-    }(n, "debug")
-  }
-
   function oe(n) {
     return n.accessibleValids
   }
@@ -2725,12 +2610,7 @@
     return n.website
   }
 
-  /**
-   * DISABLED - Remote enable check
-   * Originally: return true if window.g_remote_enable or domain matched portal whitelist
-   * This controlled whether the remote ad SDK injector would run.
-   */
-  function ce(n) {
+  function ce() {
     return false;
   }
 
@@ -2745,21 +2625,8 @@
     }(vr(ce, ee(t)), vr(ue, n))
   }
 
-  /**
-   * DISABLED - Remote Ad SDK Injector (the main hidden backdoor)
-   *
-   * Original behavior:
-   *   1. Check if remote loading is allowed (ce / g_remote_enable)
-   *   2. Detect current domain against portal whitelist (360 / 4399 / ...)
-   *   3. Construct URL:  https://{matched-domain}/v2/
-   *   4. Dynamically create <script src="..."> and inject into page
-   *   5. That script was the real portal ad SDK (interstitials, more-games, etc.)
-   *
-   * Now forced to never execute.
-   */
-  function ve(n) {
-    /* AD SDK REMOTE DISABLED - always continue init pipeline immediately */
-    n();
+  function ve(next) {
+    next();
   }
 
   function le(n, t) {
@@ -2883,19 +2750,7 @@
   }
 
   function We() {
-    for (var n = [], t = 0; t < arguments.length; t++) n[t] = arguments[t];
-    return Yu(Ji(ko), (function (t) {
-      var r;
-      if (t) {
-        var u = ee(fe(t));
-        if (u.length > 0) return (r = u[0][Ei]).is.apply(r, h([], l(n), !1))
-      }
-      return !1
-    }))
-  }
-
-  function Le(n) {
-    return E(Eo(du), n)
+    return false;
   }
 
   function ke() {
@@ -2979,7 +2834,7 @@
           var u = l(r, 2),
             i = u[0],
             o = u[1];
-          t(qr, _i), Po(Er, o), Po(du, zo(Co, o)), Xo(function (n) {
+          t(qr, _i), Po(Er, o), Xo(function (n) {
             return n.lastModified
           }(o), (function (n) {
             ai(Su(), ti(n)) || Po(xr, n)
@@ -3000,7 +2855,18 @@
           }))
         }))
       }))
-    })), Go("{{metas}}", u("eyJpbmZvLmlkIjoiQmFkUGlnZ2llc09ubGluZTIwMTgiLCJpbmZvLmRldmVsb3BlciI6ImciLCJpbmZvLm5hbWUiOiJCYWRQaWdnaWVzT25saW5lIiwiaW5mby52ZXJzaW9uIjoiOC4wLjQiLCJpbmZvLmRhdGUiOiIyMDI1LTEyLTIwIDE3OjI2OjExIiwiZWxlbWVudC5jb250YWluZXIiOiIjY29udGFpbmVyIiwiYXBwLnNpemUiOnsibWFpbi5zd2YiOjYzMTUwNzB9LCJhcHAuZmxhc2hmcmFtZSI6Mn0="))
+    })), Go("{{metas}}", {
+  "info.id": "BadPiggiesOnline2018",
+  "info.developer": "g",
+  "info.name": "BadPiggiesOnline",
+  "info.version": "8.0.4",
+  "info.date": "2025-12-20 17:26:11",
+  "element.container": "#container",
+  "app.size": {
+    "main.swf": 6315070
+  },
+  "app.flashframe": 2
+})
   }
   var Fe = "value";
 
@@ -3037,7 +2903,7 @@
             }(n, t)
           }(n, t, r)
         }), (function (n) {
-          n(Et($n, at), Po), n(Et($n, xn), Eo), n(qn, Le), n("is", We), n(Kn, ke), n(ot, Se), n(Et(Qn, rt), qo), n(Et(Qn, Hn), Qo), n("launch", Ne), n(et, Me), n(Et(et, Vn), Ze), n(ft, Je), n(tt, Ce), n("go", Ye)
+          n(Et($n, at), Po), n(Et($n, xn), Eo), n("is", We), n(Kn, ke), n(ot, Se), n(Et(Qn, rt), qo), n(Et(Qn, Hn), Qo), n("launch", Ne), n(et, Me), n(Et(et, Vn), Ze), n(ft, Je), n(tt, Ce), n("go", Ye)
         })),
         function (n, t, r, u) {
           Ae(n, t, c(c({}, u), {
@@ -3277,7 +3143,7 @@
       L = "manager",
       k = "meta",
       S = "".concat(k, "s"),
-      N = "DISABLED_MIDGAME",
+      N = "disabledMidgame",
       Y = e("module", "require"),
       Z = "movie",
       M = "opacity",
@@ -3919,17 +3785,17 @@
       }(n)
     }
     _(r, m, A), _(r, m, C), _(r, m, F), _(r, N, "before"), _(r, N, "after"), _(r, N, "post"), _(r, x, A), _(r, x, C), _(r, x, F), _(r, B, "setting");
-    var Kt = "DISABLED_IAA",
-      nr = (_(u, Kt, "DISABLED_SHOPWINDOW"), _(u, Kt, F), "DISABLED_PORTAL"),
-      tr = (_(u, nr, "DISABLED_RECOMMEND"), _(u, nr, L), _(u, nr, "DISABLED_INTERSTITIAL"), _(u, L), _(u, q), _(u, e(w, Z))),
+    var Kt = "disabled",
+      nr = (_(u, Kt, "disabled"), _(u, Kt, F), "disabled"),
+      tr = (_(u, nr, "disabled"), _(u, nr, L), _(u, nr, "disabled"), _(u, L), _(u, q), _(u, e(w, Z))),
       rr = (_(u, Y), _(u, a), _(u, l), _(u, d), _(u, G)),
       ur = _(u, e(T, "js")),
-      ir = (_(u, "slient"), _(u, "DISABLED_CAPSULE"), _(u, "logo"), _(u, "newversion"), _(u, e(T, "config"))),
+      ir = (_(u, "slient"), _(u, "disabled"), _(u, "logo"), _(u, "newversion"), _(u, e(T, "config"))),
       or = _(u, e(w, "frame")),
       er = (_(b, e("stop", "event")), _(b, v), _(b, W)),
       fr = (_(b, "overlay"), _(I, "id"), _(I, "developer"), _(I, c), _(I, Q), _(I, "channel"), _(I, "date"), _(I, "orientation"), _(O, "progress")),
       cr = _(O, j),
-      ar = (_(O, "priority"), _(O, P), _(f, "loc"), _(f, Q), _(f, "history"), _(f, H), _(X, m), _(X, P), _(X, i), _(X, s), _(z, "waiting"), _(z, P), _(z, "closings"), _(z, s), _(E, m), _(E, e(R, "url")), _(E, P), _(E, "rcsp"), _(E, i), _(x, "fullscreen"), _(x, "DISABLED_MOREGAMES"), _(x, "menu"), _(x, g), _(x, e(f, "init")), _(B, c), _(B, G), function () {
+      ar = (_(O, "priority"), _(O, P), _(f, "loc"), _(f, Q), _(f, "history"), _(f, H), _(X, m), _(X, P), _(X, i), _(X, s), _(z, "waiting"), _(z, P), _(z, "closings"), _(z, s), _(E, m), _(E, e(R, "url")), _(E, P), _(E, "rcsp"), _(E, i), _(x, "fullscreen"), _(x, "disabled"), _(x, "menu"), _(x, g), _(x, e(f, "init")), _(B, c), _(B, G), function () {
         for (var n = [], t = 0; t < arguments.length; t++) n[t] = arguments[t];
         return $n(ko.call, n)
       }),
@@ -4001,20 +3867,6 @@
 
     function gr(n) {
       dr(n)
-    }
-
-    function Or(n, t) {
-      dr(K(Fn(g), Fn(T) + "...")),
-        function (n, t, r) {
-          Et(_t(n), R, Jn(Jn({}, r), {
-            src: t
-          }))
-        }(kr, n, {
-          onload: t,
-          onerror: function (t) {
-            return mr(t, n)
-          }
-        })
     }
 
     function Wr() {
