@@ -10,11 +10,5 @@
     "icon": "images/Finn-and-Bones.jpg",
     "description": "《Finn and Bones》是《Adventure Time（探险活宝）》官方推出的一款老式 Flash 浏览器 RPG，大约在 2013 年发布，由 Cartoon Network Games 制作。",
     "url": "Finn-and-Bones/index.html"
-  },
-  {
-    "name": "Bad Piggies",
-    "icon": "images/Bad Piggies.jpg",
-    "description": "《Bad Piggies》是芬兰游戏公司 Rovio 于 2012 年推出的一款物理建造益智游戏，也是《愤怒的小鸟》的衍生作品。",
-    "url": "Bad Piggies/index.html"
   }
 ]
