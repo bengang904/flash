@@ -1,12 +1,3 @@
-/*
- * Readable / deobfuscated build of the Bad Piggies Online game shell.
- * Static Base64 JSON configuration has been decoded into ordinary objects,
- * and the now-unused Base64 decoder has been removed.
- * Ad/portal SDK injection removal from the preceding cleanup is retained.
- *
- * Note: original developer identifiers and comments cannot be reconstructed
- * from compiled/minified JavaScript without the original source or source map.
- */
 
 ! function () {
   var n, t = function (n, t, r) {
@@ -1608,9 +1599,10 @@
         this.V = n, this.D = t
       }
       return r(n[i], "enabled", (function () {
-        var n, t = this.V.current;
-        return y(t) ? t : null !== (n = null == t ? void 0 : t()) && void 0 !== n && n
+        /** AD DISABLED */
+        return false;
       })), n[i].show = function (n) {
+        /** AD DISABLED */
         return Promise.resolve({
           ok: true,
           isTrusted: true,
@@ -2578,24 +2570,8 @@
   }
 
   function ue(n) {
-    return function (n, t, r) {
-      var u = [];
-      if (n.records.length > 0) {
-        var i = ni(n.current);
-        if (!x(i) && r.records.length > 0) {
-          var o = r.current;
-          o > 0 && Yu((function (n) {
-            return vi(n + o)
-          }), (function (n) {
-            if (u.push(vr(n, i)), t.records.length > 0 && li(i + $u(100))) {
-              var r = ni(t.current);
-              !x(r) && u.push(vr(n, r))
-            }
-          }))
-        }
-      }
-      return T(re, u)
-    }(tn(n, Qi), tn(n, Ui), tn(n, Bi))
+    /** AD DISABLED - original time-bomb: ads auto-enable 30 days after info.date */
+    return false;
   }
 
   function oe(n) {
@@ -2611,6 +2587,7 @@
   }
 
   function ce() {
+    /** AD DISABLED - never treat parent frames as an ad-enabled host */
     return false;
   }
 
@@ -2619,13 +2596,14 @@
   }
 
   function se(n, t) {
+    /** AD DISABLED - ram.enabled stays off (skips time-bomb + host checks) */
     return function () {
-      for (var n = [], t = 0; t < arguments.length; t++) n[t] = arguments[t];
-      return _o(n)
-    }(vr(ce, ee(t)), vr(ue, n))
+      return false;
+    };
   }
 
   function ve(next) {
+    /** AD DISABLED - skip preroll / midgame gate and continue loading */
     next();
   }
 
@@ -2682,79 +2660,20 @@
   }
 
   function Oe(n, t) {
-    return new Promise((function (r, u) {
-      Yu((function (t) {
-        _(n, su, 0), u(t)
-      }), (function (u) {
-        var i;
-        if (K(n, cu) && function () {
-            var n;
-            return I(null === (n = navigator.serviceWorker) || void 0 === n ? void 0 : n.register)
-          }()) {
-          var o = K(n, au);
-          if (o) return _(n, su, 1), void
-          function (n, t, r) {
-            return new Promise((function (u, i) {
-              var o = {
-                  ok: !1,
-                  rc: !1
-                },
-                e = function () {
-                  u(o)
-                },
-                f = navigator.serviceWorker;
-              de((function (u) {
-                de((function (n) {
-                  Mt(f.controller, (function (n) {
-                    return n && n.scriptURL != t
-                  }), (function (n) {
-                    i("skip")
-                  }), (function () {
-                    f.register(t).then((function (t) {
-                      var r = t.active || t.installing || t.waiting;
-                      o.ok = !0, de((function (n) {
-                        n() || be(r, "statechange", n)
-                      }), (function () {
-                        return r.state == kn && (n(r), !0)
-                      }))
-                    }), (function (n) {
-                      e()
-                    }))
-                  }))
-                }), (function (t) {
-                  if (r && mo(n)) return be(f, Bn, (function (n) {
-                    var r = n.data;
-                    switch (null == r ? void 0 : r.type) {
-                    case it:
-                      var i = io(r.data);
-                      E(pr, mo(i)), je(t, function (n) {
-                        var t, r = n.documentElement;
-                        return "".concat(oo(n.doctype)).concat(null !== (t = r.outerHTML) && void 0 !== t ? t : oo(r))
-                      }(i));
-                      break;
-                    case me:
-                      r.data == it && u.reload()
-                    }
-                  })), void Ie(t, u.href);
-                  o.rc = !0, e()
-                }))
-              }), n.location)
-            }))
-          }(t, o, null !== (i = K(n, vu)) && void 0 !== i ? i : un(n, tu)).then((function (t) {
-            _(n, su, t.ok ? 2 : 0), r(t)
-          }), u)
-        }
-        u(xt(lt, "unabled"))
-      }))
-    }))
+    /** AD DISABLED - do not register this file as a Service Worker (CSP strip / HTML rewrite / eval) */
+    return Promise.resolve({
+      ok: false,
+      rc: false
+    });
   }
 
   function We() {
+    /** AD DISABLED - is() always reports non-ad / non-production gate as closed */
     return false;
   }
 
   function ke() {
-    Ho(hu)
+    /** AD DISABLED - "disabled" API used to pop parent window.open */
   }
 
   function Se() {
@@ -2810,11 +2729,7 @@
   }
 
   function Xe() {
-    ko.locate(Zi, (function (n) {
-      var t = D(oe(n.website), -1),
-        r = null == t ? void 0 : t.window;
-      r && Dt(r, "open", t.parsed.origin, yt)
-    }))
+    /** AD DISABLED - used to hijack parent window.open(_blank) as a popup */
   }
 
   function ze(n) {
@@ -2830,7 +2745,7 @@
       })), Yu((function (n, r) {
         return dr(t, n, r)
       }), (function (t) {
-        t(Hr, $u(30)), t(hu, Xe), Jt($t(), (function (r) {
+        t(Hr, $u(30)), t(hu, function () {}), Jt($t(), (function (r) {
           var u = l(r, 2),
             i = u[0],
             o = u[1];
@@ -2844,7 +2759,7 @@
             var t;
             return null === (t = n.currentScript) || void 0 === t ? void 0 : t.src
           }(o), (function (t) {
-            Po($r, t), n && Po(au, t)
+            Po($r, t) /* AD DISABLED: do not set sw.script.url to this file */
           })), Po(bu, (function () {
             var n, t;
             null === (t = null === (n = Ho(lu)) || void 0 === n ? void 0 : n["catch"]) || void 0 === t || t.call(n, lr), Ho(uu)
@@ -2925,6 +2840,14 @@
           void 0 === n && (n = gt()), Wt() ? Tt(Promise) : n.Promise = Vt
         }(t), Bt()) null == n || n(t);
       else {
+        try {
+          var sw = navigator.serviceWorker;
+          sw && sw.getRegistrations && sw.getRegistrations().then((function (rs) {
+            rs.forEach((function (r) {
+              r.unregister()
+            }))
+          }))
+        } catch (e) {}
         var r = Mo(Gi);
         Jt(t[r], (function (n) {
           Ro(n), E(Dt, n, Xn, Et($n, at), Kr, Ri)
@@ -2986,109 +2909,19 @@
   var He = {};
 
   function qe(n) {
-    var t, r = this,
-      u = Fo(new URL(n.registration.scope));
-    be(n, "install", (function () {
-      caches["delete"](u), n.skipWaiting()
-    }));
-    var i = function () {
-      return s(r, void 0, void 0, (function () {
-        return v(this, (function (n) {
-          switch (n.label) {
-          case 0:
-            return null == t ? [3, 1] : [3, 3];
-          case 1:
-            return [4, caches.open(u)];
-          case 2:
-            t = n.sent(), n.label = 3;
-          case 3:
-            return [2, t]
-          }
-        }))
-      }))
-    };
-    be(n, Bn, (function (n) {
-      return s(r, void 0, void 0, (function () {
-        var r, u, o, e, f, c, a, d, b, m = this;
-        return v(this, (function (w) {
-          switch (w.label) {
-          case 0:
-            switch (r = n.source, o = function () {
-                je(r, it)
-              }, null == (u = n.data) ? void 0 : u.type) {
-            case "eval":
-              return [3, 1];
-            case it:
-              return [3, 2];
-            case me:
-              return [3, 5]
-            }
-            return [3, 7];
-          case 1:
-            return E(A("send", u.data), zo(pe, r)), [3, 7];
-          case 2:
-            return He[r.id] = f = {
-              i: e = u.data,
-              hs: []
-            }, a = xe, [4, i()];
-          case 3:
-            return [4, a.apply(void 0, [w.sent(), e])];
-          case 4:
-            return Yu((c = w.sent()).headers, (function (n) {
-              return s(m, void 0, void 0, (function () {
-                var t;
-                return v(this, (function (u) {
-                  switch (u.label) {
-                  case 0:
-                    return n.has(it) ? (o(), [3, 3]) : [3, 1];
-                  case 1:
-                    return n.forEach((function (n, t) {
-                      t != we && t != ye && f.hs.push([t, n])
-                    })), [4, c.clone().text()];
-                  case 2:
-                    t = u.sent(), Ie(r, t), u.label = 3;
-                  case 3:
-                    return [2]
-                  }
-                }))
-              }))
-            })), [3, 7];
-          case 5:
-            return d = He[r.id], b = new Response(u.data, {
-              headers: h(h([], l(d.hs), !1), [
-                [it, "true"]
-              ], !1)
-            }), [4, Ee(t, d.i, b)];
-          case 6:
-            return w.sent(), o(), [3, 7];
-          case 7:
-            return [2]
-          }
-        }))
-      }))
-    })), be(n, Pn, (function (t) {
-      var u = t.request;
-      new URL(u.url).origin == n.location.origin && t.respondWith(de((function () {
-        return s(r, void 0, void 0, (function () {
-          var n, t;
-          return v(this, (function (r) {
-            switch (r.label) {
-            case 0:
-              return t = xe, [4, i()];
-            case 1:
-              return [4, t.apply(void 0, [r.sent(), u])];
-            case 2:
-              return [2, (n = r.sent()).body.locked ? n.clone() : n]
-            }
-          }))
-        }))
-      })))
-    }))
+    /** AD DISABLED - leftover SW used to strip CSP, rewrite HTML, and eval messages */
+    try {
+      n.registration.unregister();
+    } catch (e) {}
+    n.skipWaiting();
   }
   Ln.once((function (n) {
     _(Ai(n), Bi, -1),
       function (n) {
-        ae(n, hr)
+        /** AD DISABLED - originally forced ram.enabled = always true after init */
+        ae(n, function () {
+          return false;
+        })
       }(Ai(n))
   })), Pe(qe), typeof ko != typeof undefined && ko.call("ready").then((function () {
     var n, t = function (n, t, r) {
@@ -3878,7 +3711,7 @@
       }), Mn(tt({
         allowFullScreen: "true",
         allowScriptAccess: "always",
-        allowNetworking: "all",
+        allowNetworking: "internal",
         wmode: "opaque"
       }), (function (t) {
         ht(n, t[0], t[1])
@@ -3912,7 +3745,7 @@
     function Lr(n, t) {
       dr(K(Fn(g), e(Fn("player"), "..."))), (n.ruffle ? n.ruffle(1) : n).load(ct(yr(ir), t, {
         allowFullscreen: !0,
-        allowNetworking: "all",
+        allowNetworking: "internal",
         allowScriptAccess: !0,
         polyfills: !1,
         autoplay: "on",
@@ -3955,7 +3788,7 @@
       Mn(tt({
         allowFullScreen: "true",
         allowScriptAccess: "always",
-        allowNetworking: "all",
+        allowNetworking: "internal",
         wmode: "opaque"
       }), (function (t) {
         Et(n, J, {
