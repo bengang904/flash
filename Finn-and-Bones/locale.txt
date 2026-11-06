@@ -1,0 +1,184 @@
+new_game:New Game
+new_gameConfirmation:Are you sure you want to start a new game? You will lose all your progress.
+leave_dungeonConfirmation:Are you sure you want to leave the dungeon? You will lose all your progress.
+continue:Continue
+dungeonName:Dungeon $1
+specialDungeonName:Special Dungeon
+legendaryDungeonName:Legendary Dungeon
+legendaryDate:Available on $2/$3/$1
+dailyXp:XP
+dailyLvl:LVL
+dailyBonusCurrent:Today's Bonus
+dailyBonusNext:Available on $2/$3/$1
+loading:Loading...
+intro_01:DESERT OF DOOM
+intro_02:Man, I’m so thirsty. My mouth's crazy dry.
+intro_03:Thirsty? Have a drink.
+intro_04:Huh? That's Forgetfulness water! 
+intro_05:
+intro_06:Too late! Your friend and his tasty flesh are coming with me!
+intro_07:Don’t worry, Finn. We’ll help you, using the power of SCIENCE! 
+outro_01:I crossed the whole Underworld... to RESCUE you! Your name is Jake, and you are my best friend!
+outro_02:I’m cool with that, dude… but I’m still NOT kissing that guy! That’s GROSS!
+outro_03:My kiss of death will restore your memory, Jake.
+outro_04:And you... you were supposed to RETURN my lost talisman, not USE it to open portals and kidnap fleshies!
+outro_05:Gotta deal with this guy now... say hello to Peppermint Butler for me, will ya?
+outro_06:Thanks a lot, Death. We won’t bother you anymore. Cross our hearts and... hope we won’t meet again!
+outro_07:
+enemy_level:Lvl. $1
+level:Level $1
+experience_status:$1/$2
+health_status:$1/$2
+mix_title:Mix & Match
+mix:Mix
+mixName:Mix $1
+inventory:Inventory
+popUpValue:$1/$2
+tutorialSwordTitle:EQUIPMENT
+tutorialSword:Finn, you should always check your inventory and equip yourself before battle! Drag your sword into the weapon slot to boost your chances!
+tutorialStatsTitle:Finn's Stats
+tutorialStats:You can improve four different stats:
+tutorialStatsHealth:HEALTH: the damage you can take.
+tutorialStatsAttack:ATTACK: the damage you deal.
+tutorialStatsDefense:DEFENSE: the damage you block from enemy attacks.
+tutorialStatsLuck:LUCK: the chances of critical and block attacks.
+tutorialConsumablesTitle:BOOST ITEMS
+tutorialConsumables:Using items during battle can turn the tide. Drag the Health Potion into the power-up slot to recover some energy!
+tutorialMixTitle:MIXING ITEMS
+tutorialMix:The item you place in the left slot determines which kind of object you’ll get! Try experimenting, but remember: items can only have two stats!
+tutorialMix2:Way to go, Finn! Now you can use your laboratory backpack to mix up powerful new items! Drop any two items into the slots, click the MIX button, and let science do the work!
+tutorialTakeAll:Click this button to grab all the loot at once.
+advice1:Have you tried mixing a sword with a block of ice?
+advice2:All items have a primary and a secondary stat you can improve.
+advice3:The item on the left of the mixer indicates the kind of object you'll get in the mix.
+advice4:Equip an Ice Shield to improve your defense against Ice enemies
+advice5:Equip a Fire Shield to improve your defense against Fire enemies
+advice6:Equip a Fire Sword to deal more damage to Ice enemies
+advice7:Equip an Ice Sword to deal more damage to Fire enemies
+pbSpecialMixEnd:"$1"! Great mix, Finn!
+pbSpecialMix:You could mix these items to get something interesting!
+pbFire:Fire Swords deal more damage to Ice enemies
+pbIce:Ice Swords deal more damage to Fire enemies
+pbLostSeveralTimes:Try replaying some previous Dungeons.
+pbIceEnemy:Fire beats Ice, you know...
+pbClickAdvice:You can always click on me for helpful tips!
+pbAdvice1:Every item has two stats you can improve.
+pbAdvice2:Some combinations create entirely new items... don't be afraid to experiment!
+pbAdvice3:Mix your items to improve their stats!
+pbAdvice4:The item you place in the left slot determines which kind of object you’ll get in the mix!
+pbAdvice5:Mixing during battle will get you bonus XP... but only if you beat the Dungeon!
+pbAdvice6:Dungeons marked with a star are wicked hard, but they'll grant you better loot!
+pbAdvice7:Critical Hits will get you bonus XP... but only if you beat the Dungeon!
+pbAdvice8:C'mon, Finn! You can do it!!
+pbAdvice9:Can't beat a Dungeon? Don't panic. Replay a previous level to improve your stats!
+pbAdvice10:Some items can only be found in certain Dungeons.
+pbAdvice11:You've got science on your side!
+pbAdvice12:A Potion used at the right time can turn the tide of the battle!
+pbAdvice13:Use any item with a red attack bonus to upgrade your swords!
+pbAdvice14:Click the book to see the special mixes you've discovered.
+mixAttack:Powerful $1
+mixDefense:Reinforced $1
+mixLuck:Charmed $1
+mixHealth:Vigorous $1
+critical_bonus:Critical Hit!
+element_bonus:Elemental Bonus %$1
+evade_bonus:Blocked!
+lose_combat:Combat Experience
+lose_xp_amount:$1 XP
+win_title:Dungeon Completed!
+win_combat:Combat Experience
+win_critical_bonus:Critical Bonus
+win_mix_bonus:Mix Bonus
+win_loot:Loot
+win_total:Total
+win_xp_amount:$1 XP
+finn:Finn
+enemy1_normal:Skeleton Guard
+enemy1_fire:Flame Guard
+enemy1_ice:Icy Guard
+enemy2_normal:Skeleton Sentinel
+enemy2_fire:Blazing Sentinel
+enemy2_ice:Chilly Sentinel
+enemy2_snow:Snow Sentinel
+boss_normal:Underworld Sorcerer
+hpPotionSmall:Small Health Potion
+defPotionSmall:Small Defense Potion
+attPotionSmall:Small Attack Potion
+luckPotionSmall:Small Luck Potion
+hpPotionMedium:Big Health Potion
+defPotionMedium:Big Defense Potion
+attPotionMedium:Big Attack Potion
+luckPotionMedium:Big Luck Potion
+hpPotionBig:Elixir of Life
+defPotionBig:Elixir of Protection
+attPotionBig:Elixir of Power
+luckPotionBig:Elixir of Fortune
+maxHPRing:Ring of Health
+defRing:Ring of Defense
+attRing:Ring of Attack
+luckRing:Ring of Luck
+maxHPRing2:Ring of Life
+defRing2:Ring of Protection
+attRing2:Ring of Power
+luckRing2:Ring of Fortune
+maxHPPendant:Health Pendant
+defPendant:Defense Pendant
+attPendant:Attack Pendant
+luckPendant:Luck Pendant
+maxHPPendant2:Life Jewelry
+defPendant2:Protection Jewelry
+attPendant2:Power Jewelry
+luckPendant2:Fortune Jewelry
+swordStarter:Finn's Sword
+swordSimple:Iron  Blade
+swordMedium:Ninja Sword
+swordHeavy:Scimitar
+swordStarterFire:Finn's Fire Sword
+swordSimpleFire:Flaming Blade
+swordMediumFire:Flaming Ninja Sword
+swordHeavyFire:Flaming Scimitar
+swordStarterIce:Finn's Ice Sword
+swordSimpleIce:Frozen Blade
+swordMediumIce:Frozen Ninja Sword
+swordHeavyIce:Frozen Scimitar
+shieldSimple:Wooden Shield
+shieldMedium:Armored Shield
+shieldHeavy:Skull Shield
+shieldSimpleFire:Flaming Wooden Shield
+shieldMediumFire:Flaming Armored Shield
+shieldHeavyFire:Flaming Skull Shield
+shieldSimpleIce:Frozen Wooden Shield
+shieldMediumIce:Frozen Armored Shield
+shieldHeavyIce:Frozen Skull Shield
+rottenApple:Rotten Apple
+niceApple:Shiny Apple
+bone:Bone
+luckyBone:Lucky Bone
+fourLeafClover:Four-leaf Clover
+manlyMustache:Manly Moustache
+applePie:Apple Pie
+snailShell:Snail Shell
+poison:Poison
+iceBlock:Block of Ice
+fireFlame:Burning Flame
+water:Water
+frozenMustache:Frozen Moustache
+temporalTattoo:Temporary Tattoo
+emptyCan:Empty Can
+cannedAttack:Canned Power
+cannedDefense:Canned Protection
+cannedLuck:Canned Fortune
+cannedHP:Canned Health
+mrFriendlyRock:Mr. Jolly Stone
+msFriendlyRock:Mrs. Merry Stone
+friendlyRockJr:Little Rocky Jr.
+appleIceCream:Apple Ice Cream
+pirateFlag:Skeleton Flag
+manlyBeard:Manly Beard
+seeds:Mystery Seeds
+strawberry:Underworld Strawberry
+strawberryIceCream:Strawberry Ice Cream
+paper:Notebook Paper
+paperBook:Swordplay Encyclopedia
+legendarySword:Sorcerer's Blade
+marcelineBass:Ax Bass
